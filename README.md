@@ -1,4 +1,4 @@
-# SSLRec
+# Anonymous SSLRec
 
 **SSLRec** is an easy-to-use PyTorch-based deep learning framework for recommender systems enhanced by self-supervised learning techniques.
 It contains commonly-used datasets, code scripts for data processing, training, testing, evaluation, 
