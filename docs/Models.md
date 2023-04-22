@@ -1,8 +1,7 @@
 ### General Collaborative Filtering
 | Model | Conference | Paper |
 | ----- | ---------- | ----- |
-| LightGCN | SIGIR'20 | [LightGCN: simplifying and powering graph convolution
-Network for Recommendation](https://arxiv.org/pdf/2002.02126.pdf) |
+| LightGCN | SIGIR'20 | [LightGCN: simplifying and powering graph convolution network for recommendation](https://arxiv.org/pdf/2002.02126.pdf) |
 | SGL   | SIGIR'21   | [Self-supervised graph learning for recommendation](https://arxiv.org/pdf/2010.10783.pdf)|
 |  HCCF | SIGIR'22   | [Hypergraph contrastive collaborative filtering](https://arxiv.org/pdf/2204.12200.pdf)   |
 | SimGCL| SIGIR'22   | [Are graph augmentations necessary? simple graph contrastive learning for recommendation](https://www.researchgate.net/profile/Junliang-Yu/publication/359788233_Are_Graph_Augmentations_Necessary_Simple_Graph_Contrastive_Learning_for_Recommendation/links/624e802ad726197cfd426f81/Are-Graph-Augmentations-Necessary-Simple-Graph-Contrastive-Learning-for-Recommendation.pdf?ref=https://githubhelp.com)|
