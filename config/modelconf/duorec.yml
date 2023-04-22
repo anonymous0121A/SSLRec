@@ -1,0 +1,39 @@
+optimizer:
+  name: adam
+  lr: 1.0e-3 # not 1e-3
+  weight_decay: 0
+
+train:
+  epoch: 200
+  batch_size: 512
+  save_model: true
+  test_step: 1 # evaluate per {test_step} epochs
+  #pretrain_path: ./checkpoint/xxxx.pth
+  reproducible: true
+  seed: 2023
+
+test:
+  metrics: [recall, ndcg] # choose in {ndcg, recall, precision, mrr}
+  k: [5, 10] # top-k
+  batch_size: 512 # How many users per batch during validation
+
+data:
+  type: sequential # choose in {general_cf, multi_behavior, sequential, social}
+  name: ml-20m
+  seq_aug: true
+
+model:
+  name: duorec # case-insensitive
+  dropout_rate: 0.1
+  n_layers: 2
+  embedding_size: 64
+  n_heads: 2
+  max_seq_len: 50
+  lmd_sem: 0.1
+  tau: 1
+
+tune:
+  enable: true # Whether to enable grid search to search for optimal hyperparameters
+  hyperparameters: [lmd_sem, tau] # The name of the hyperparameter
+  lmd_sem: [0.1, 0.05, 0.01] # Use a list to store the search range
+  tau: [1, 0.8, 0.6]

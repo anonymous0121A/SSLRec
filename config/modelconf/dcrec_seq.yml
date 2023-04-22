@@ -1,0 +1,43 @@
+optimizer:
+  name: adam
+  lr: 1.0e-3 # not 1e-3
+  weight_decay: 0
+
+train:
+  epoch: 50
+  batch_size: 512
+  save_model: true
+  test_step: 1 # evaluate per {test_step} epochs
+  #pretrain_path: ./checkpoint/xxxx.pth
+  reproducible: true
+  seed: 2023
+
+test:
+  metrics: [recall, ndcg] # choose in {ndcg, recall, precision, mrr}
+  k: [5, 10] # top-k
+  batch_size: 512 # How many users per batch during validation
+
+data:
+  type: sequential # choose in {general_cf, multi_behavior, sequential, social}
+  name: ml-20m
+  seq_aug: true
+
+model:
+  name: dcrec_seq # case-insensitive
+  dropout_rate: 0.1
+  graph_dropout_prob: 0.3
+  n_layers: 2
+  embedding_size: 64
+  n_heads: 2
+  max_seq_len: 50
+  cl_lambda: 1.0e-4
+  cl_temp: 0.8
+  weight_mean: 0.4
+  sim_group_k: 4
+  kl_weight: 1.0e-2
+
+tune:
+  enable: true # Whether to enable grid search to search for optimal hyperparameters
+  hyperparameters: [weight_mean] # The name of the hyperparameter
+  cl_lambda: [1.0e-4, 1.0e-3, 1.0e-2]
+  weight_mean: [0.4, 0.5, 0.6]
